@@ -1,0 +1,6 @@
+To execute the sample LLVM IR with opt binary on Linux Machine
+1. Unzip the zip file
+2. Add permissions to opt binary
+   $ chmod 777 opt
+3. Run the opt tool on hadd.ll
+   $ ./opt -basicaa -slp-vectorizer -mtriple=aarch64-unknown-linuxgnu -mcpu=cortex-a57

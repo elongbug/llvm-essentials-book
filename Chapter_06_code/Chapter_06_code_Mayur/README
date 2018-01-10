@@ -1,0 +1,16 @@
+To execute the code, Follow the steps.
+1. Unzip the zip file.
+2. Change the permission of llc binary.
+   $ chmod 777 llc
+3. Execute the command
+   $ ./llc -mtriple=aarch64-linux-gnu -verify-machineinstrs hadd.ll
+4. See the output
+   $ cat hadd.s
+5. To view machine instructions for a testcode:
+   $ ./llc -print-machineinstrs test.ll -o -
+6. To view regiter allocation:
+   $ ./llc test.ll –regalloc=greedy –o -
+7. To view MC Instruction:
+   $ ./llc test.ll -asm-show-inst -o -
+8. To view binary encoding:
+   $ ./llc test.ll -asm-show-inst -o -

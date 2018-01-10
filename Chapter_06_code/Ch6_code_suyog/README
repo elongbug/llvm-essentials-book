@@ -1,0 +1,8 @@
+To execute the code, Follow the steps.
+1. Unzip the zip file.
+2. Change the permission of llc binary.
+   $ chmod 777 llc
+3. Execute the command
+   $ ./llc -mtriple=aarch64-linux-gnu -verify-machineinstrs hadd.ll
+4. See the output
+   $ cat hadd.s

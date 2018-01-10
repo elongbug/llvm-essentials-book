@@ -1,0 +1,747 @@
+# After Instruction Selection:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Expand ISel Pseudo-instructions:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Tail Duplication:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Optimize machine instruction PHIs:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Merge disjoint stack slots:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Local Stack Slot Allocation:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Remove dead machine instructions:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Early If-Conversion:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Machine InstCombiner:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Machine Loop Invariant Code Motion:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Machine Common Subexpression Elimination:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Machine code sinking:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Peephole Optimizations:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Remove dead machine instructions:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After X86 Optimize Call Frame:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Process Implicit Definitions:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX; GR32:%vreg2
+	%vreg1<def> = COPY %ESI; GR32:%vreg1
+	%vreg0<def> = COPY %EDI; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<tied0>, %vreg1, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX; GR32:%vreg4
+	%EAX<def> = COPY %vreg4; GR32:%vreg4
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Live Variable Analysis:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX<kill>; GR32:%vreg2
+	%vreg1<def> = COPY %ESI<kill>; GR32:%vreg1
+	%vreg0<def> = COPY %EDI<kill>; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<kill,tied0>, %vreg1<kill>, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3<kill>; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use,kill>
+	IDIV32r %vreg2<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use,kill>, %EDX<imp-use,kill>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX<kill>; GR32:%vreg4
+	%EAX<def> = COPY %vreg4<kill>; GR32:%vreg4
+	RETQ %EAX<kill>
+
+# End machine code for function test.
+
+# After Machine Natural Loop Construction:
+# Machine code for function test: SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX<kill>; GR32:%vreg2
+	%vreg1<def> = COPY %ESI<kill>; GR32:%vreg1
+	%vreg0<def> = COPY %EDI<kill>; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<kill,tied0>, %vreg1<kill>, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3<kill>; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use,kill>
+	IDIV32r %vreg2<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use,kill>, %EDX<imp-use,kill>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX<kill>; GR32:%vreg4
+	%EAX<def> = COPY %vreg4<kill>; GR32:%vreg4
+	RETQ %EAX<kill>
+
+# End machine code for function test.
+
+# After Eliminate PHI nodes for register allocation:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX<kill>; GR32:%vreg2
+	%vreg1<def> = COPY %ESI<kill>; GR32:%vreg1
+	%vreg0<def> = COPY %EDI<kill>; GR32:%vreg0
+	%vreg3<def,tied1> = ADD32rr %vreg0<kill,tied0>, %vreg1<kill>, %EFLAGS<imp-def,dead>; GR32:%vreg3,%vreg0,%vreg1
+	%EAX<def> = COPY %vreg3<kill>; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use,kill>
+	IDIV32r %vreg2<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use,kill>, %EDX<imp-use,kill>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX<kill>; GR32:%vreg4
+	%EAX<def> = COPY %vreg4<kill>; GR32:%vreg4
+	RETQ %EAX<kill>
+
+# End machine code for function test.
+
+# After Two-Address instruction pass:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %ESI %EDX
+	%vreg2<def> = COPY %EDX<kill>; GR32:%vreg2
+	%vreg1<def> = COPY %ESI<kill>; GR32:%vreg1
+	%vreg0<def> = COPY %EDI<kill>; GR32:%vreg0
+	%vreg5:sub_32bit<def,read-undef> = COPY %vreg0<kill>; GR64:%vreg5 GR32:%vreg0
+	%vreg6:sub_32bit<def,read-undef> = COPY %vreg1<kill>; GR64_NOSP:%vreg6 GR32:%vreg1
+	%vreg3<def> = LEA64_32r %vreg5<kill>, 1, %vreg6<kill>, 0, %noreg; GR32:%vreg3 GR64:%vreg5 GR64_NOSP:%vreg6
+	%EAX<def> = COPY %vreg3<kill>; GR32:%vreg3
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use,kill>
+	IDIV32r %vreg2<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use,kill>, %EDX<imp-use,kill>; GR32:%vreg2
+	%vreg4<def> = COPY %EAX<kill>; GR32:%vreg4
+	%EAX<def> = COPY %vreg4<kill>; GR32:%vreg4
+	RETQ %EAX<kill>
+
+# End machine code for function test.
+
+# After Simple Register Coalescing:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+0B	BB#0: derived from LLVM BB %0
+	    Live Ins: %EDI %ESI %EDX
+16B		%vreg2<def> = COPY %EDX; GR32:%vreg2
+32B		%vreg6:sub_32bit<def,read-undef> = COPY %ESI; GR64_NOSP:%vreg6
+48B		%vreg5:sub_32bit<def,read-undef> = COPY %EDI; GR64_with_sub_8bit:%vreg5
+96B		%vreg3<def> = LEA64_32r %vreg5, 1, %vreg6, 0, %noreg; GR32:%vreg3 GR64_with_sub_8bit:%vreg5 GR64_NOSP:%vreg6
+112B		%EAX<def> = COPY %vreg3; GR32:%vreg3
+128B		CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use,kill>
+144B		IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use,kill>, %EDX<imp-use>; GR32:%vreg2
+160B		%vreg4<def> = COPY %EAX<kill>; GR32:%vreg4
+176B		%EAX<def> = COPY %vreg4; GR32:%vreg4
+192B		RETQ %EAX<kill>
+
+# End machine code for function test.
+
+# After Machine Instruction Scheduler:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+0B	BB#0: derived from LLVM BB %0
+	    Live Ins: %EDI %ESI %EDX
+16B		%vreg2<def> = COPY %EDX; GR32:%vreg2
+32B		%vreg6:sub_32bit<def,read-undef> = COPY %ESI; GR64_NOSP:%vreg6
+48B		%vreg5:sub_32bit<def,read-undef> = COPY %EDI; GR64_with_sub_8bit:%vreg5
+96B		%vreg3<def> = LEA64_32r %vreg5, 1, %vreg6, 0, %noreg; GR32:%vreg3 GR64_with_sub_8bit:%vreg5 GR64_NOSP:%vreg6
+112B		%EAX<def> = COPY %vreg3; GR32:%vreg3
+128B		CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+144B		IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+152B		%vreg4<def> = COPY %EAX; GR32:%vreg4
+176B		%EAX<def> = COPY %vreg4; GR32:%vreg4
+192B		RETQ %EAX
+
+# End machine code for function test.
+
+# After Greedy Register Allocator:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI in %vreg0, %ESI in %vreg1, %EDX in %vreg2
+
+0B	BB#0: derived from LLVM BB %0
+	    Live Ins: %EDI %ESI %EDX
+16B		%vreg2<def> = COPY %EDX; GR32:%vreg2
+32B		%vreg6:sub_32bit<def,read-undef> = COPY %ESI; GR64_NOSP:%vreg6
+48B		%vreg5:sub_32bit<def,read-undef> = COPY %EDI; GR64_with_sub_8bit:%vreg5
+96B		%vreg3<def> = LEA64_32r %vreg5, 1, %vreg6, 0, %noreg; GR32:%vreg3 GR64_with_sub_8bit:%vreg5 GR64_NOSP:%vreg6
+112B		%EAX<def> = COPY %vreg3; GR32:%vreg3
+128B		CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+144B		IDIV32r %vreg2, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>; GR32:%vreg2
+152B		%vreg4<def> = COPY %EAX; GR32:%vreg4
+176B		%EAX<def> = COPY %vreg4; GR32:%vreg4
+192B		RETQ %EAX
+
+# End machine code for function test.
+
+# After Virtual Register Rewriter:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+0B	BB#0: derived from LLVM BB %0
+	    Live Ins: %EDI %EDX %ESI
+16B		%ECX<def> = COPY %EDX
+96B		%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+128B		CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+144B		IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+192B		RETQ %EAX
+
+# End machine code for function test.
+
+# After Stack Slot Coloring:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = COPY %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Machine Loop Invariant Code Motion:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = COPY %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After X86 FP Stackifier:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = COPY %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Shrink Wrapping analysis:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = COPY %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Prologue/Epilogue Insertion & Frame Finalization:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = COPY %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Control Flow Optimizer:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = COPY %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Tail Duplication:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = COPY %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Machine Copy Propagation Pass:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = COPY %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Post-RA pseudo instruction expansion pass:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After X86 pseudo instruction expansion pass:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Post RA top-down list latency scheduler:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Analyze Machine Code For Garbage Collection:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Branch Probability Basic Block Placement:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After Execution dependency fix:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After X86 vzeroupper inserter:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After X86 Atom pad short functions:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After X86 LEA Fixup:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+# After StackMap Liveness Analysis:
+# Machine code for function test: Post SSA
+Function Live Ins: %EDI, %ESI, %EDX
+
+BB#0: derived from LLVM BB %0
+    Live Ins: %EDI %EDX %ESI
+	%ECX<def> = MOV32rr %EDX
+	%EAX<def> = LEA64_32r %RDI<kill>, 1, %RSI<kill>, 0, %noreg
+	CDQ %EAX<imp-def>, %EDX<imp-def>, %EAX<imp-use>
+	IDIV32r %ECX<kill>, %EAX<imp-def>, %EDX<imp-def,dead>, %EFLAGS<imp-def,dead>, %EAX<imp-use>, %EDX<imp-use>
+	RETQ %EAX
+
+# End machine code for function test.
+
+********** INTERVALS **********
+virtregs:%vreg0 [48r,64r:0)  0@48r
+RegMasks:
+********** INTERVALS **********
+virtregs:%vreg0 [48r,64r:0)  0@48r
+%vreg1 [32r,80r:0)  0@32r
+RegMasks:
+********** INTERVALS **********
+virtregs:%vreg0 [48r,64r:0)  0@48r
+%vreg1 [32r,80r:0)  0@32r
+%vreg2 [16r,144r:0)  0@16r
+RegMasks:
+********** INTERVALS **********
+virtregs:%vreg0 [48r,64r:0)  0@48r
+%vreg1 [32r,80r:0)  0@32r
+%vreg2 [16r,144r:0)  0@16r
+%vreg3 [96r,112r:0)  0@96r
+RegMasks:
+********** INTERVALS **********
+virtregs:%vreg0 [48r,64r:0)  0@48r
+%vreg1 [32r,80r:0)  0@32r
+%vreg2 [16r,144r:0)  0@16r
+%vreg3 [96r,112r:0)  0@96r
+%vreg4 [160r,176r:0)  0@160r
+RegMasks:
+********** INTERVALS **********
+virtregs:%vreg0 [48r,64r:0)  0@48r
+%vreg1 [32r,80r:0)  0@32r
+%vreg2 [16r,144r:0)  0@16r
+%vreg3 [96r,112r:0)  0@96r
+%vreg4 [160r,176r:0)  0@160r
+%vreg5 [64r,96r:0)  0@64r
+RegMasks:
+********** INTERVALS **********
+virtregs:%vreg0 [48r,64r:0)  0@48r
+%vreg1 [32r,80r:0)  0@32r
+%vreg2 [16r,144r:0)  0@16r
+%vreg3 [96r,112r:0)  0@96r
+%vreg4 [160r,176r:0)  0@160r
+%vreg5 [64r,96r:0)  0@64r
+%vreg6 [80r,96r:0)  0@80r
+RegMasks:
